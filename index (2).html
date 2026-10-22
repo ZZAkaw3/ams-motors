@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>АМС-МОТОРС — Автосервис и магазин автозапчастей в Трёхгорке</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        carbon: '#0B0D12',
+                        carbonLight: '#141821',
+                        racingBlue: '#1D4ED8',
+                        racingBlueHover: '#2563EB',
+                        accentBlue: '#3B82F6'
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        heading: ['Russo One', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Russo+One&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #0B0D12;
+            background-color: #FFFFFF;
+        }
+        .font-title {
+            font-family: 'Russo One', sans-serif;
+            letter-spacing: 0.03em;
+        }
+        /* Диагональные срезы как на референсе */
+        @media (min-width: 1024px) {
+            .clip-hero {
+                clip-path: polygon(14% 0, 100% 0, 100% 100%, 0% 100%);
+            }
+            .clip-advantage {
+                clip-path: polygon(12% 0, 100% 0, 100% 100%, 0% 100%);
+            }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-racingBlue selection:text-white">
+
+    <!-- ШАПКА НАВИГАЦИИ -->
+    <header class="bg-carbon text-white border-b border-white/10 sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Логотип -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-11 h-11 rounded-full border-2 border-accentBlue flex items-center justify-center bg-carbonLight group-hover:bg-racingBlue transition">
+                    <i data-lucide="gauge" class="w-6 h-6 text-white"></i>
+                </div>
+                <div>
+                    <span class="font-title text-xl tracking-wider block leading-none">АМС-МОТОРС</span>
+                    <span class="text-[10px] text-gray-400 uppercase tracking-widest block mt-1">Техцентр & Запчасти</span>
+                </div>
+            </a>
+
+            <!-- Меню -->
+            <nav class="hidden md:flex items-center gap-8 text-xs font-semibold uppercase tracking-wider text-gray-300">
+                <a href="#" class="text-white hover:text-accentBlue transition">Главная</a>
+                <a href="#services" class="hover:text-accentBlue transition">Услуги</a>
+                <a href="#advantages" class="hover:text-accentBlue transition">О нас</a>
+                <a href="#reviews" class="hover:text-accentBlue transition">Отзывы (4.7★)</a>
+                <a href="#contacts" class="hover:text-accentBlue transition">Контакты</a>
+            </nav>
+
+            <!-- Кнопка -->
+            <button onclick="openModal('Заявка из шапки сайта')" class="bg-racingBlue hover:bg-racingBlueHover text-white text-xs font-bold uppercase tracking-wider px-6 py-3.5 transition shadow-lg shadow-racingBlue/30">
+                Оставить заявку
+            </button>
+        </div>
+    </header>
+
+    <!-- HERO СЕКЦИЯ (Темная с диагональным срезом) -->
+    <section class="relative bg-carbon text-white overflow-hidden">
+        <!-- Правое фоновое фото автомобиля со срезом -->
+        <div class="lg:w-[58%] lg:absolute lg:inset-y-0 lg:right-0 relative h-[320px] sm:h-[420px] lg:h-auto clip-hero">
+            <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=1400&q=85" 
+                 alt="Ремонт импортных автомобилей АМС-Моторс" 
+                 class="w-full h-full object-cover object-center">
+            <div class="absolute inset-0 bg-gradient-to-r from-carbon via-carbon/60 to-transparent lg:via-carbon/30"></div>
+        </div>
+
+        <!-- Контент первого экрана -->
+        <div class="max-w-7xl mx-auto px-6 py-16 lg:py-28 relative z-10">
+            <div class="lg:w-3/5">
+                <div class="inline-flex items-center gap-2 text-accentBlue text-xs font-bold uppercase tracking-widest mb-4">
+                    <span>Ремонт легковых и импортных автомобилей</span>
+                    <span class="text-white/20">•</span>
+                    <span class="text-yellow-400">★ 4.7 (442 оценки)</span>
+                </div>
+
+                <h1 class="font-title text-4xl sm:text-5xl lg:text-[54px] uppercase leading-[1.12] mb-6">
+                    Техническое<br>
+                    обслуживание,<br>
+                    сервис и ремонт
+                </h1>
+
+                <p class="text-gray-300 text-sm sm:text-base max-w-xl mb-10 leading-relaxed font-normal">
+                    Автотехцентр и собственный магазин автозапчастей в посёлке Трёхгорка. Честная диагностика, соблюдение сроков, сезонный шиномонтаж с хранением шин и гарантией на все виды работ.
+                </p>
+
+                <div class="flex flex-wrap items-center gap-4">
+                    <button onclick="openModal('Запись на диагностику')" class="bg-racingBlue hover:bg-racingBlueHover text-white text-xs font-bold uppercase tracking-wider px-7 py-4 flex items-center gap-3 transition shadow-lg shadow-racingBlue/30">
+                        <span>Запись на диагностику</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </button>
+                    <a href="#services" class="border border-white/40 hover:border-white hover:bg-white/10 text-white text-xs font-bold uppercase tracking-wider px-7 py-4 transition">
+                        Просмотр услуг
+                    </a>
+                </div>
+
+                <!-- Плашка локации и графика -->
+                <div class="mt-12 pt-8 border-t border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-gray-400">
+                    <div class="flex items-center gap-2.5">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-accentBlue shrink-0"></i>
+                        <span>Трёхгорная ул., 4 (82 м от «Ленты»)</span>
+                    </div>
+                    <div class="flex items-center gap-2.5">
+                        <i data-lucide="clock" class="w-4 h-4 text-accentBlue shrink-0"></i>
+                        <span>Ежедневно 10:00 – 19:00</span>
+                    </div>
+                    <div class="flex items-center gap-2.5">
+                        <i data-lucide="package-check" class="w-4 h-4 text-accentBlue shrink-0"></i>
+                        <span>Свой склад автозапчастей</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- СЕКЦИЯ УСЛУГ (Как на референсе: карточки с крупными номерами 01, 02, 03, 04) -->
+    <section id="services" class="py-20 px-6 max-w-7xl mx-auto">
+        <div class="mb-12">
+            <span class="text-racingBlue text-xs font-bold uppercase tracking-widest block mb-2">Услуги техцентра</span>
+            <h2 class="font-title text-3xl sm:text-4xl uppercase leading-tight">
+                Мы предлагаем<br>широкий спектр автосервиса
+            </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <!-- Карточка 01 -->
+            <div class="group relative h-[420px] overflow-hidden bg-carbon text-white flex flex-col justify-between p-7">
+                <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=800&q=80" 
+                     alt="Техническое обслуживание" 
+                     class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-55">
+                <div class="absolute inset-0 bg-gradient-to-t from-carbon via-carbon/70 to-transparent"></div>
+                
+                <div class="relative z-10">
+                    <span class="font-title text-5xl text-white drop-shadow">01</span>
+                </div>
+
+                <div class="relative z-10">
+                    <h3 class="font-title text-xl uppercase mb-3">Тех. обслуживание и ремонт ДВС</h3>
+                    <p class="text-xs text-gray-3
